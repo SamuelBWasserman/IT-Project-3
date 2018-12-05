@@ -1,6 +1,7 @@
 import threading
 import socket as mysoc
 import sys
+import hmac
 
 def make_dic():
     dns_table = {}
@@ -13,6 +14,11 @@ def make_dic():
                 word_list.append(word)
             dns_table[word_list[0]] = (word_list[1], word_list[2])
     return dns_table
+
+def read_key():
+    with open('PROJ3-KEY1.txt ','r') as input_file:
+        lines = input_file.read().splitlines()
+        return lines[0]
 
 def ts_server():
     try:
@@ -32,7 +38,18 @@ def ts_server():
     #load data to dictionary
     dns_table = make_dic()
 
+    # Read the key specified for this server
+    key = read_key()
+
     while 1:
+        # Receive challenge from auth server and return a digest
+        challenge = ts_sockid.recv(100).decode('utf-8')
+        digest = hmac.new(key.encode(), challenge.encode("utf-8"))
+
+        # Send the digest back to the auth server
+        ts_sockid.send(digest.encode('utf-8'))
+
+
         hostname = ts_sockid.recv(100).decode('utf-8')
         #check the dictonary for match
         try:

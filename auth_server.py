@@ -45,7 +45,7 @@ def root_server():
     except mysoc.error as err:
         print('{} \n'.format("socket open error ", err))
     try:
-        root_socket = mysoc.socket(mysoc.AF_INET, mysoc.SOCK_STREAM)
+        auth_socket = mysoc.socket(mysoc.AF_INET, mysoc.SOCK_STREAM)
         print("Socket root Created")
     except mysoc.error as err:
         print('{} \n'.format("socket open error ", err))
@@ -55,12 +55,12 @@ def root_server():
     print("My address: " + my_ip)
 
     # Bind to port 5009
-    root_socket.bind(('', 5009))
+    auth_socket.bind(('', 5009))
     print("Listening on port: 5009")
 
     # Listen for incoming connections
-    root_socket.listen(1)
-    root_sock_id, addr = root_socket.accept()
+    auth_socket.listen(1)
+    auth_sock_id, addr = auth_socket.accept()
     print("Connection received from " + str(addr))
 
     # Create the DNS dictionary
@@ -72,46 +72,52 @@ def root_server():
     is_com_connected = False
     is_edu_connected = False
     while 1:
-        host_name = root_sock_id.recv(100).decode('utf-8')
+        # Receive challenge from client and send to both TLDS servers
+        challenge = auth_sock_id.recv(100).decode('utf-8')
+
+        ts1_socket.send(challenge.encode('utf-8'))
+        ts2_socket.send(challenge.encode('utf-8'))
+
+        host_name = auth_sock_id.recv(100).decode('utf-8')
         print "Received " + host_name
-	try:
+        try:
             # query the dictionary and return the resultant string
             entry = dns_dict[host_name]
             return_string = host_name + " " + entry[0] + " " + entry[1]
             print ("Found:" + return_string)
-	    root_sock_id.send(return_string.encode('utf-8')) 
+            auth_sock_id.send(return_string.encode('utf-8'))
             # host name not found. Try and find it in a TS server
         except KeyError:
-	    print host_name + " not found in dictionary here"
+            print host_name + " not found in dictionary here"
             if "com" in host_name:
-		if not is_com_connected:
-                	com_server_addr = mysoc.gethostbyname(sys.argv[1])
-                	print ("Connection to: " + str(com_server_addr))
-                	ts_server_binding = (com_server_addr, ts1_port)
-                	ts1_socket.connect(ts_server_binding)
-                	is_com_connected = True
-		# Send the host name for lookup in ts server
-                ts1_socket.send(host_name.encode('utf-8'))
-                host_info = ts1_socket.recv(100)
-		if host_info:
-			print host_info
-			root_sock_id.send(host_info.encode('utf-8'))
+                if not is_com_connected:
+                    com_server_addr = mysoc.gethostbyname(sys.argv[1])
+                    print ("Connection to: " + str(com_server_addr))
+                    ts_server_binding = (com_server_addr, ts1_port)
+                    ts1_socket.connect(ts_server_binding)
+                    is_com_connected = True
+            # Send the host name for lookup in ts server
+            ts1_socket.send(host_name.encode('utf-8'))
+            host_info = ts1_socket.recv(100)
+            if host_info:
+                print host_info
+                auth_sock_id.send(host_info.encode('utf-8'))
             elif "edu" in host_name:
                 if not is_edu_connected:
-			edu_server_addr = mysoc.gethostbyname(sys.argv[2])
-                	print("Connection to: " + str(edu_server_addr))
-                	ts_server_binding = (edu_server_addr, ts2_port)
-                	ts2_socket.connect(ts_server_binding)
-                	is_edu_connected = True
-		# Send the host name for lookup in ts server
+                    edu_server_addr = mysoc.gethostbyname(sys.argv[2])
+                    print("Connection to: " + str(edu_server_addr))
+                    ts_server_binding = (edu_server_addr, ts2_port)
+                    ts2_socket.connect(ts_server_binding)
+                    is_edu_connected = True
+                # Send the host name for lookup in ts server
                 ts2_socket.send(host_name.encode('utf-8'))
                 host_info = ts2_socket.recv(100)
-		if host_info:
-			print host_info
-			root_sock_id.send(host_info.encode('utf-8'))
-	    else:
-		error_string = "Hostname - Error:HOST NOT FOUND"
-		root_sock_id.send(error_string.encode('utf-8'))
+        if host_info:
+            print host_info
+            auth_sock_id.send(host_info.encode('utf-8'))
+        else:
+            error_string = "Hostname - Error:HOST NOT FOUND"
+            auth_sock_id.send(error_string.encode('utf-8'))
 
 
 thread = threading.Thread(name='root_server', target=root_server)

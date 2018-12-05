@@ -74,9 +74,20 @@ def root_server():
     while 1:
         # Receive challenge from client and send to both TLDS servers
         challenge = auth_sock_id.recv(100).decode('utf-8')
+        digest = auth_sock_id.recv(100).decode('utf-8')
 
         ts1_socket.send(challenge.encode('utf-8'))
         ts2_socket.send(challenge.encode('utf-8'))
+
+        digest_TLDS1 = ts1_socket.recv(100).decode('utf-8')
+        digest_TLDS2 = ts2_socket.recv(100).decode('utf-8')
+
+        if digest == digest_TLDS1:
+            auth_sock_id.send()
+        elif digest == digest_TLDS2:
+            # Replace with code to send back hostname of TLDS2 to client
+            return -1
+
 
         host_name = auth_sock_id.recv(100).decode('utf-8')
         print "Received " + host_name

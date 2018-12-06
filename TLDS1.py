@@ -5,7 +5,7 @@ import hmac
 
 def make_dic():
     dns_table = {}
-    with open(sys.argv[1], 'r') as input_file:
+    with open("PROJ3-TLDS1.txt", 'r') as input_file:
         lines = input_file.read().splitlines()
         for line in lines:
             words = line.split()

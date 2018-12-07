@@ -34,8 +34,8 @@ def client():
     # Open output file
     output_file = open("RESOLVED.txt", "w")
 
-    ts1_port = 5007
-    ts2_port = 5008
+    ts1_port = 5011
+    ts2_port = 5011
 
     # Open text file and read line by line
     with open("PROJ3-HNS.txt", 'r') as input_file:

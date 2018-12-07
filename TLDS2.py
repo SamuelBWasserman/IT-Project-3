@@ -26,9 +26,16 @@ def ts_server():
         print("[S]: Server socket created")
     except mysoc.error as err:
         print('{} \n'.format("socket open error ", err))
+    try:
+        client_sock = mysoc.socket(mysoc.AF_INET, mysoc.SOCK_STREAM)
+        print("[S]: Server socket created")
+    except mysoc.error as err:
+        print('{} \n'.format("socket open error ", err))
 
+    client_sock.bind('', 5011)
     ts_soc.bind(('', 5008))
     ts_soc.listen(1)
+    client_sock.listen(1)
 
     host = mysoc.gethostname()
     print("[S]: Server host name is: ", host)
@@ -36,6 +43,8 @@ def ts_server():
     print("[S]: Server IP address is  ", localhost_ip)
     ts_sockid, addr = ts_soc.accept()
     print ("[S]: Got a connection request from a client at", addr)
+    client_sock_id, addr = client_sock.accept()
+
 
     #load data to dictionary
     dns_table = make_dic()
@@ -53,17 +62,17 @@ def ts_server():
         # Send the digest back to the auth server
         ts_sockid.send(str(digest.hexdigest()))
 
-        hostname = ts_sockid.recv(100).decode('utf-8')
+        hostname = client_sock_id.recv(100).decode('utf-8')
         #check the dictonary for match
         try:
             data = dns_table[hostname]
             #the string to return if there is a match
             match_string = hostname + " " + data[0] + " " + data[1]
             #send the string to the client
-            ts_sockid.send(match_string.encode('utf-8'))
+            client_sock_id.send(match_string.encode('utf-8'))
         except KeyError:
             msg = "Hostname - Error:HOST NOT FOUND"
-            ts_sockid.send(msg.encode('utf-8'))
+            client_sock_id.send(msg.encode('utf-8'))
 
 
 t1 = threading.Thread(name='ts_server', target=ts_server)

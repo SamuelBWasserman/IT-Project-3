@@ -70,10 +70,13 @@ def ts_server():
 
             #check the dictonary for match
             try:
+                print "checking table for host"
                 data = dns_table[hostname]
+                print data
                 print "Found host"
                 #the string to return if there is a match
                 match_string = hostname + " " + data[0] + " " + data[1]
+                print match_string
                 #send the string to the client
                 client_sock_id.send(match_string.encode('utf-8'))
             except KeyError:

@@ -60,6 +60,7 @@ def client():
             print "host is " + host
 
             auth_socket.send(challenge.encode('utf-8'))
+            print "challenge is " + challenge
             digest = hmac.new(key.encode(), challenge.encode("utf-8"))
             auth_socket.send(str(digest.hexdigest()))
 
@@ -94,9 +95,12 @@ def client():
             if not host_information:
                 print "Error with " + host
                 continue
+            elif tlds_server == "TLDS1":
+                print "Writing " + host_information + " to file"
+                output_file.write("TLDS1 " + host_information + "\n")
             else:
                 print "Writing " + host_information + " to file"
-                output_file.write(host_information + "\n")
+                output_file.write("TLDS2 " + host_information + "\n")
 
     input_file.close()
     output_file.close()

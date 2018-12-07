@@ -1,6 +1,5 @@
 import threading
 import socket as mysoc
-import sys
 import hmac
 
 def make_dic():
@@ -43,8 +42,6 @@ def ts_server():
     print("[S]: Server IP address is  ", localhost_ip)
     ts_sockid, addr = ts_soc.accept()
     print ("[S]: Got a connection request from a auth server at", addr)
-    client_sock_id, client_addr = client_sock.accept()
-    print ("[S]: Got a connection request from a client at", client_addr)
 
 
     #load data to dictionary
@@ -53,16 +50,18 @@ def ts_server():
     key = read_key()
     print "key is" + key
 
-    #Receive hostnames from client
+
     while 1:
         # Receive challenge from auth server and return a digest
         challenge = ts_sockid.recv(100).decode('utf-8')
         print "challenge is " + challenge
         digest = hmac.new(key.encode(), challenge.encode("utf-8"))
-        print "digest is " + str(digest)
+        print "digest is " + str(digest.hexdigest())
         # Send the digest back to the auth server
         ts_sockid.send(str(digest.hexdigest()))
 
+        client_sock_id, client_addr = client_sock.accept()
+        print ("[S]: Got a connection request from a client at", client_addr)
         hostname = client_sock_id.recv(100).decode('utf-8')
         #check the dictonary for match
         try:

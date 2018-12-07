@@ -21,21 +21,23 @@ def client():
     except mysoc.error as err:
         print('{} \n'.format("socket open error ", err))
 
+    # Get the IP of this host
+    my_ip = mysoc.gethostbyname(mysoc.gethostname())
+    print("My address: " + my_ip)
+
     # Get the IP address of the auth server and use Port 5009
     auth_server_addr = mysoc.gethostbyname(mysoc.gethostname())
-    root_port = 5009
+    auth_port = 5009
+    ts1_port = 5011
+    ts2_port = 5011
 
-    # Get the IP address of the two TLDS servers
-
-    # connect to the root server
-    auth_server_binding = (auth_server_addr, root_port)
+    # connect to the auth server
+    print ("Connection to: " + str(auth_server_addr))
+    auth_server_binding = (auth_server_addr, auth_port)
     auth_socket.connect(auth_server_binding)
 
     # Open output file
     output_file = open("RESOLVED.txt", "w")
-
-    ts1_port = 5011
-    ts2_port = 5011
 
     # Open text file and read line by line
     with open("PROJ3-HNS.txt", 'r') as input_file:
@@ -49,20 +51,22 @@ def client():
             key = word_list[0]
             challenge = word_list[1]
             host = word_list[2]
-            print "key is" + key
-            print "challenge is " + challenge
+
+            print "key is" + key + ": ",
+            print "challenge is " + challenge + ": ",
             print "host is " + host
+
             auth_socket.send(challenge.encode('utf-8'))
             digest = hmac.new(key.encode(), challenge.encode("utf-8"))
             auth_socket.send(str(digest.hexdigest()))
 
             # Receive tlds server to call for info retrieval
             tlds_server = auth_socket.recv(100).decode('utf-8')
+            print "TLDS = " + tlds_server
 
-            # Send each line from the text file to the root Server
             host_information = ""
-
             print "Sending " + host
+
             if tlds_server == "TLDS1":
                 # Connect to tlds1
                 tlds1_addr = mysoc.gethostbyname("cpp.cs.rutgers.edu")

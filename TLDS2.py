@@ -42,8 +42,9 @@ def ts_server():
     localhost_ip = (mysoc.gethostbyname(host))
     print("[S]: Server IP address is  ", localhost_ip)
     ts_sockid, addr = ts_soc.accept()
-    print ("[S]: Got a connection request from a client at", addr)
-    client_sock_id, addr = client_sock.accept()
+    print ("[S]: Got a connection request from a auth server at", addr)
+    client_sock_id, client_addr = client_sock.accept()
+    print ("[S]: Got a connection request from a client at", client_addrg)
 
 
     #load data to dictionary

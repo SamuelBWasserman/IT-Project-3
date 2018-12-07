@@ -62,14 +62,18 @@ def ts_server():
         client_sock_id, client_addr = client_sock.accept()
         print ("[S]: Got a connection request from a client at", client_addr)
         hostname = client_sock_id.recv(100).decode('utf-8')
+        print hostname
+
         #check the dictonary for match
         try:
             data = dns_table[hostname]
+            print "Found host"
             #the string to return if there is a match
             match_string = hostname + " " + data[0] + " " + data[1]
             #send the string to the client
             client_sock_id.send(match_string.encode('utf-8'))
         except KeyError:
+            print "Host not found"
             msg = "Hostname - Error:HOST NOT FOUND"
             client_sock_id.send(msg.encode('utf-8'))
 

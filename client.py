@@ -52,7 +52,7 @@ def client():
             challenge = word_list[1]
             host = word_list[2]
 
-            print "key is" + key + ": ",
+            print "key is " + key + ": ",
             print "challenge is " + challenge + ": ",
             print "host is " + host
 

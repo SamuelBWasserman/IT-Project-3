@@ -75,16 +75,20 @@ def auth_server():
         # Send challenge to TLDS1 and receive digest
         ts1_socket.send(challenge.encode('utf-8'))
         digest_TLDS1 = ts1_socket.recv(100).decode('utf-8')
+        print "Received digest from TLDS1: " + digest_TLDS1
 
         # Send challenge to TLDS2 and receive digest
         ts2_socket.send(challenge.encode('utf-8'))
         digest_TLDS2 = ts2_socket.recv(100).decode('utf-8')
+        print "Received digest from TLDS2: " + digest_TLDS2
 
         # Compare digests and send the correct one back to the client
         if digest == digest_TLDS1:
             auth_sock_id.send("TLDS1".encode('utf-8'))
         elif digest == digest_TLDS2:
             auth_sock_id.send("TLDS2".encode('utf-8'))
+        else:
+            print "No digest matched the given digest"
 
 
 thread = threading.Thread(name='auth_server', target=auth_server)

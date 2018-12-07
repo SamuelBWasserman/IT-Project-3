@@ -3,8 +3,7 @@
   <component name="ChangeListManager">
     <list default="true" id="08931cb1-f39f-4a97-a29c-b1f5269355b2" name="Default" comment="">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/TLDS1.py" afterPath="$PROJECT_DIR$/TLDS1.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/TLDS2.py" afterPath="$PROJECT_DIR$/TLDS2.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/client.py" afterPath="$PROJECT_DIR$/client.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/auth_server.py" afterPath="$PROJECT_DIR$/auth_server.py" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -18,7 +17,7 @@
       <file leaf-file-name="client.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/client.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="234">
+            <state relative-caret-position="515">
               <caret line="67" column="35" lean-forward="false" selection-start-line="67" selection-start-column="31" selection-end-line="67" selection-end-column="35" />
               <folding>
                 <element signature="e#0#16#0" expanded="true" />
@@ -30,8 +29,8 @@
       <file leaf-file-name="auth_server.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/auth_server.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="572">
-              <caret line="80" column="46" lean-forward="false" selection-start-line="80" selection-start-column="46" selection-end-line="80" selection-end-column="46" />
+            <state relative-caret-position="510">
+              <caret line="82" column="59" lean-forward="false" selection-start-line="82" selection-start-column="59" selection-end-line="82" selection-end-column="59" />
               <folding>
                 <element signature="e#0#16#0" expanded="true" />
               </folding>
@@ -39,11 +38,11 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="TLDS1.py" pinned="false" current-in-tab="false">
+      <file leaf-file-name="TLDS1.py" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/TLDS1.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="215">
-              <caret line="42" column="71" lean-forward="false" selection-start-line="42" selection-start-column="71" selection-end-line="42" selection-end-column="71" />
+            <state relative-caret-position="460">
+              <caret line="62" column="77" lean-forward="false" selection-start-line="62" selection-start-column="77" selection-end-line="62" selection-end-column="77" />
               <folding>
                 <element signature="e#0#16#0" expanded="true" />
               </folding>
@@ -51,7 +50,7 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="TLDS2.py" pinned="false" current-in-tab="true">
+      <file leaf-file-name="TLDS2.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/TLDS2.py">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="317">
@@ -119,9 +118,9 @@
     <option name="CHANGED_PATHS">
       <list>
         <option value="$PROJECT_DIR$/client.py" />
+        <option value="$PROJECT_DIR$/TLDS2.py" />
         <option value="$PROJECT_DIR$/auth_server.py" />
         <option value="$PROJECT_DIR$/TLDS1.py" />
-        <option value="$PROJECT_DIR$/TLDS2.py" />
       </list>
     </option>
   </component>
@@ -629,9 +628,20 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/TLDS2.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="317">
+          <caret line="46" column="73" lean-forward="false" selection-start-line="46" selection-start-column="73" selection-end-line="46" selection-end-column="73" />
+          <folding>
+            <element signature="e#0#16#0" expanded="true" />
+            <marker date="1544200941377" expanded="true" signature="460:490" ph="..." />
+          </folding>
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/client.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="234">
+        <state relative-caret-position="515">
           <caret line="67" column="35" lean-forward="false" selection-start-line="67" selection-start-column="31" selection-end-line="67" selection-end-column="35" />
           <folding>
             <element signature="e#0#16#0" expanded="true" />
@@ -641,8 +651,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/auth_server.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="572">
-          <caret line="80" column="46" lean-forward="false" selection-start-line="80" selection-start-column="46" selection-end-line="80" selection-end-column="46" />
+        <state relative-caret-position="510">
+          <caret line="82" column="59" lean-forward="false" selection-start-line="82" selection-start-column="59" selection-end-line="82" selection-end-column="59" />
           <folding>
             <element signature="e#0#16#0" expanded="true" />
           </folding>
@@ -651,21 +661,10 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/TLDS1.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="215">
-          <caret line="42" column="71" lean-forward="false" selection-start-line="42" selection-start-column="71" selection-end-line="42" selection-end-column="71" />
+        <state relative-caret-position="460">
+          <caret line="62" column="77" lean-forward="false" selection-start-line="62" selection-start-column="77" selection-end-line="62" selection-end-column="77" />
           <folding>
             <element signature="e#0#16#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/TLDS2.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="317">
-          <caret line="46" column="73" lean-forward="false" selection-start-line="46" selection-start-column="73" selection-end-line="46" selection-end-column="73" />
-          <folding>
-            <element signature="e#0#16#0" expanded="true" />
-            <marker date="1544200941377" expanded="true" signature="460:490" ph="..." />
           </folding>
         </state>
       </provider>

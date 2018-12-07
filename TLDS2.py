@@ -32,7 +32,7 @@ def ts_server():
     except mysoc.error as err:
         print('{} \n'.format("socket open error ", err))
 
-    client_sock.bind('', 5011)
+    client_sock.bind(('', 5011))
     ts_soc.bind(('', 5008))
     ts_soc.listen(1)
     client_sock.listen(1)

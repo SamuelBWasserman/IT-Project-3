@@ -31,7 +31,7 @@ def ts_server():
         print("[S]: Socket to client socket created")
     except mysoc.error as err:
         print('{} \n'.format("socket open error ", err))
-    client_sock.bind('', 5011)
+    client_sock.bind(('', 5011))
     ts_soc.bind(('', 5007))
     ts_soc.listen(1)
     client_sock.listen(1)

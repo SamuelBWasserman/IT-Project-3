@@ -51,7 +51,7 @@ def ts_server():
         digest = hmac.new(key.encode(), challenge.encode("utf-8"))
 
         # Send the digest back to the auth server
-        ts_sockid.send(digest)
+        ts_sockid.send(str(digest.hexdigest()))
 
         hostname = ts_sockid.recv(100).decode('utf-8')
         #check the dictonary for match

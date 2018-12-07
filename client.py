@@ -54,7 +54,7 @@ def client():
             print "host is " + host
             auth_socket.send(challenge.encode('utf-8'))
             digest = hmac.new(key.encode(), challenge.encode("utf-8"))
-            auth_socket.send(digest)
+            auth_socket.send(str(digest.hexdigest()))
 
             # Receive tlds server to call for info retrieval
             tlds_server = auth_socket.recv(100).decode('utf-8')

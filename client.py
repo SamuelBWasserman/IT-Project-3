@@ -39,6 +39,9 @@ def client():
     # Open output file
     output_file = open("RESOLVED.txt", "w")
 
+    is_ts1_connected = False
+    is_ts2_connected = False
+
     # Open text file and read line by line
     with open("PROJ3-HNS.txt", 'r') as input_file:
         lines = input_file.read().splitlines()
@@ -68,19 +71,23 @@ def client():
             print "Sending " + host
 
             if tlds_server == "TLDS1":
-                # Connect to tlds1
-                tlds1_addr = mysoc.gethostbyname("cpp.cs.rutgers.edu")
-                print ("Connection to: " + str(tlds1_addr))
-                ts1_server_binding = (tlds1_addr, ts1_port)
-                ts1_socket.connect(ts1_server_binding)
+                if is_ts1_connected == False:
+                    # Connect to tlds1
+                    tlds1_addr = mysoc.gethostbyname("cpp.cs.rutgers.edu")
+                    print ("Connection to: " + str(tlds1_addr))
+                    ts1_server_binding = (tlds1_addr, ts1_port)
+                    ts1_socket.connect(ts1_server_binding)
+                    is_ts1_connected = True
                 ts1_socket.send(host.encode('utf-8'))
                 host_information = ts1_socket.recv(100)
             elif tlds_server == "TLDS2":
-                # Connect to tlds2
-                tlds2_addr = mysoc.gethostbyname("java.cs.rutgers.edu")
-                print ("Connection to: " + str(tlds2_addr))
-                ts2_server_binding = (tlds2_addr, ts2_port)
-                ts2_socket.connect(ts2_server_binding)
+                if is_ts2_connected == False:
+                    # Connect to tlds2
+                    tlds2_addr = mysoc.gethostbyname("java.cs.rutgers.edu")
+                    print ("Connection to: " + str(tlds2_addr))
+                    ts2_server_binding = (tlds2_addr, ts2_port)
+                    ts2_socket.connect(ts2_server_binding)
+                    is_ts2_connected = True
                 ts2_socket.send(host.encode('utf-8'))
                 host_information = ts2_socket.recv(100)
 

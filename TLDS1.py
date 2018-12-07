@@ -62,7 +62,7 @@ def ts_server():
 
         flag = ts_sockid.recv(100).decode('utf-8')
 
-        if flag == "you":
+        if flag == "ts1":
             client_sock_id, client_addr = client_sock.accept()
             print ("[S]: Got a connection request from a client at", client_addr)
             hostname = client_sock_id.recv(100).decode('utf-8')

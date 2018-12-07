@@ -84,12 +84,12 @@ def auth_server():
 
         # Compare digests and send the correct one back to the client
         if digest == digest_TLDS1:
-            ts1_socket.send("you".encode('utf-8'))
-            ts2_socket.send("not you".encode('utf-8'))
+            ts1_socket.send("ts1".encode('utf-8'))
+            ts2_socket.send("ts1 you".encode('utf-8'))
             auth_sock_id.send("TLDS1".encode('utf-8'))
         elif digest == digest_TLDS2:
-            ts1_socket.send("not you".encode('utf-8'))
-            ts2_socket.send("you".encode('utf-8'))
+            ts1_socket.send("ts2".encode('utf-8'))
+            ts2_socket.send("ts2".encode('utf-8'))
             auth_sock_id.send("TLDS2".encode('utf-8'))
         else:
             print "No digest matched the given digest"

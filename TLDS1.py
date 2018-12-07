@@ -16,7 +16,7 @@ def make_dic():
     return dns_table
 
 def read_key():
-    with open('PROJ3-KEY1.txt ','r') as input_file:
+    with open('PROJ3-KEY1.txt','r') as input_file:
         lines = input_file.read().splitlines()
         return lines[0]
 

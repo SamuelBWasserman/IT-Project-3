@@ -21,7 +21,7 @@ def client():
         print('{} \n'.format("socket open error ", err))
 
     # Get the IP address of the auth server and use Port 5009
-    auth_server_addr = mysoc.gethostbyname(sys.argv[1])
+    auth_server_addr = mysoc.gethostbyname(mysoc.gethostname())
     root_port = 5009
 
     # Get the IP address of the two TLDS servers
@@ -36,23 +36,21 @@ def client():
     ts1_port = 5007
     ts2_port = 5008
 
-    # Connect to tlds1
-    tlds1_addr = mysoc.gethostbyname("cpp.cs.rutgers.edu")
-    print ("Connection to: " + str(tlds1_addr))
-    ts1_server_binding = (tlds1_addr, ts1_port)
-    ts1_socket.connect(ts1_server_binding)
-
-    # Connect to tlds2
-    tlds2_addr = mysoc.gethostbyname("java.cs.rutgers.edu")
-    print ("Connection to: " + str(tlds2_addr))
-    ts2_server_binding = (tlds2_addr, ts2_port)
-    ts2_socket.connect(ts2_server_binding)
-
     # Open text file and read line by line
     with open("PROJ3-HNS.txt", 'r') as input_file:
-        key_challenge_host_list = input_file.read().splitlines()
-        for key, challenge, host in key_challenge_host_list:
+        lines = input_file.read().splitlines()
+        for line in lines:
+            words = line.split()
+            word_list = []
+            for word in words:
+                word_list.append(word)
             # Send the key and digest to the auth server
+            key = word_list[0]
+            challenge = word_list[1]
+            host = word_list[2]
+            print "key is" + key
+            print "challenge is " + challenge
+            print "host is " + host
             auth_socket.send(key.encode('utf-8'))
             auth_socket.send(challenge.encode('utf-8'))
 
@@ -64,9 +62,19 @@ def client():
 
             print "Sending " + host
             if tlds_server == "TLDS1":
+                # Connect to tlds1
+                tlds1_addr = mysoc.gethostbyname("cpp.cs.rutgers.edu")
+                print ("Connection to: " + str(tlds1_addr))
+                ts1_server_binding = (tlds1_addr, ts1_port)
+                ts1_socket.connect(ts1_server_binding)
                 ts1_socket.send(host.encode('utf-8'))
                 host_information = ts1_socket.recv(100)
             elif tlds_server == "TLDS2":
+                # Connect to tlds2
+                tlds2_addr = mysoc.gethostbyname("java.cs.rutgers.edu")
+                print ("Connection to: " + str(tlds2_addr))
+                ts2_server_binding = (tlds2_addr, ts2_port)
+                ts2_socket.connect(ts2_server_binding)
                 ts2_socket.send(host.encode('utf-8'))
                 host_information = ts2_socket.recv(100)
 

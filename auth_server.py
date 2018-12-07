@@ -68,7 +68,9 @@ def auth_server():
     while 1:
         # Receive challenge from client and send to both TLDS servers
         challenge = auth_sock_id.recv(100).decode('utf-8')
+        print "challenge is " + challenge
         digest = auth_sock_id.recv(100).decode('utf-8')
+        print "digest is " + digest
 
         # Send challenge to TLDS1 and receive digest
         ts1_socket.send(challenge.encode('utf-8'))

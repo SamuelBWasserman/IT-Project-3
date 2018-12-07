@@ -1,6 +1,7 @@
 import threading
 import sys
 import socket as mysoc
+import hmac
 
 def client():
     # Open sockets for auth, tlds1, tlds2
@@ -51,8 +52,9 @@ def client():
             print "key is" + key
             print "challenge is " + challenge
             print "host is " + host
-            auth_socket.send(key.encode('utf-8'))
             auth_socket.send(challenge.encode('utf-8'))
+            digest = hmac.new(key.encode(), challenge.encode("utf-8"))
+            auth_socket.send(digest)
 
             # Receive tlds server to call for info retrieval
             tlds_server = auth_socket.recv(100).decode('utf-8')

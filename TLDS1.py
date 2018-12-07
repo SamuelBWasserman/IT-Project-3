@@ -40,14 +40,15 @@ def ts_server():
 
     # Read the key specified for this server
     key = read_key()
+    print "key is " + key
 
     while 1:
         # Receive challenge from auth server and return a digest
         challenge = ts_sockid.recv(100).decode('utf-8')
+        print "challenge is " + challenge
         digest = hmac.new(key.encode(), challenge.encode("utf-8"))
-
         # Send the digest back to the auth server
-        ts_sockid.send(digest.encode('utf-8'))
+        ts_sockid.send(digest)
 
 
         hostname = ts_sockid.recv(100).decode('utf-8')

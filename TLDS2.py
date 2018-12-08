@@ -53,6 +53,7 @@ def ts_server():
     key = read_key()
     print "key is " + key
 
+    is_client_connected = False
     while 1:
         # Receive challenge from auth server and return a digest
         challenge = ts_sockid.recv(100).decode('utf-8')
@@ -61,7 +62,7 @@ def ts_server():
         print "digest is " + str(digest.hexdigest())
         # Send the digest back to the auth server
         ts_sockid.send(str(digest.hexdigest()))
-        is_client_connected = False
+
         flag = ts_sockid.recv(100).decode('utf-8')
         if flag == "ts2":
             print "This server will be called"

@@ -44,8 +44,7 @@ def ts_server():
     print("[S]: Server IP address is  ", localhost_ip)
     ts_sockid, addr = ts_soc.accept()
     print ("[S]: Got a connection request from a auth server at", addr)
-    client_sock_id, client_addr = client_sock.accept()
-    print ("[S]: Got a connection request from a client at", client_addr)
+    client_sock_id, client_addr = "", ""
 
     #load data to dictionary
     dns_table = make_dic()
@@ -54,6 +53,7 @@ def ts_server():
     key = read_key()
     print "key is " + key
 
+    is_client_connected = False
     while 1:
         # Receive challenge from auth server and return a digest
         challenge = ts_sockid.recv(100).decode('utf-8')
@@ -66,6 +66,11 @@ def ts_server():
         flag = ts_sockid.recv(100).decode('utf-8')
         if flag == "ts1":
             print "This server will be called"
+            if is_client_connected == False:
+                print "Waiting for client to connect"
+                client_sock_id, client_addr = client_sock.accept()
+                print ("[S]: Got a connection request from a client at", client_addr)
+                is_client_connected = True
             hostname = client_sock_id.recv(100).decode('utf-8')
             print hostname
 

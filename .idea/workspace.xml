@@ -2,7 +2,9 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="08931cb1-f39f-4a97-a29c-b1f5269355b2" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/auth_server.py" afterPath="$PROJECT_DIR$/auth_server.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/TLDS1.py" afterPath="$PROJECT_DIR$/TLDS1.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/TLDS2.py" afterPath="$PROJECT_DIR$/TLDS2.py" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -16,16 +18,17 @@
       <file leaf-file-name="client.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/client.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="343">
-              <caret line="80" column="29" lean-forward="false" selection-start-line="80" selection-start-column="29" selection-end-line="80" selection-end-column="29" />
+            <state relative-caret-position="358">
+              <caret line="81" column="29" lean-forward="false" selection-start-line="81" selection-start-column="29" selection-end-line="81" selection-end-column="29" />
               <folding>
                 <element signature="e#0#16#0" expanded="true" />
+                <marker date="1544280114792" expanded="true" signature="77:3975" ph="..." />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="auth_server.py" pinned="false" current-in-tab="true">
+      <file leaf-file-name="auth_server.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/auth_server.py">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="533">
@@ -37,11 +40,11 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="TLDS1.py" pinned="false" current-in-tab="false">
+      <file leaf-file-name="TLDS1.py" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/TLDS1.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="315">
-              <caret line="64" column="23" lean-forward="false" selection-start-line="64" selection-start-column="23" selection-end-line="64" selection-end-column="23" />
+            <state relative-caret-position="330">
+              <caret line="65" column="46" lean-forward="false" selection-start-line="65" selection-start-column="46" selection-end-line="65" selection-end-column="46" />
               <folding>
                 <element signature="e#0#16#0" expanded="true" />
               </folding>
@@ -52,12 +55,22 @@
       <file leaf-file-name="TLDS2.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/TLDS2.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="315">
-              <caret line="64" column="23" lean-forward="false" selection-start-line="64" selection-start-column="23" selection-end-line="64" selection-end-column="23" />
+            <state relative-caret-position="285">
+              <caret line="65" column="12" lean-forward="false" selection-start-line="65" selection-start-column="12" selection-end-line="65" selection-end-column="46" />
               <folding>
                 <element signature="e#0#16#0" expanded="true" />
-                <marker date="1544204126220" expanded="true" signature="449:479" ph="..." />
+                <marker date="1544280433755" expanded="true" signature="449:479" ph="..." />
               </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="PROJ3-TLDS2.txt" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/PROJ3-TLDS2.txt">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="0">
+              <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+              <folding />
             </state>
           </provider>
         </entry>
@@ -117,9 +130,9 @@
     <option name="CHANGED_PATHS">
       <list>
         <option value="$PROJECT_DIR$/client.py" />
+        <option value="$PROJECT_DIR$/auth_server.py" />
         <option value="$PROJECT_DIR$/TLDS2.py" />
         <option value="$PROJECT_DIR$/TLDS1.py" />
-        <option value="$PROJECT_DIR$/auth_server.py" />
       </list>
     </option>
   </component>
@@ -236,6 +249,7 @@
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding>
             <element signature="e#0#16#0" expanded="true" />
+            <marker date="1544280114792" expanded="true" signature="77:3975" ph="..." />
           </folding>
         </state>
       </provider>
@@ -266,7 +280,7 @@
           <caret line="35" column="38" lean-forward="false" selection-start-line="35" selection-start-column="38" selection-end-line="35" selection-end-column="38" />
           <folding>
             <element signature="e#0#16#0" expanded="true" />
-            <marker date="1544204126220" expanded="true" signature="449:479" ph="..." />
+            <marker date="1544280433755" expanded="true" signature="449:479" ph="..." />
           </folding>
         </state>
       </provider>
@@ -309,6 +323,7 @@
           <caret line="63" column="0" lean-forward="false" selection-start-line="63" selection-start-column="0" selection-end-line="63" selection-end-column="0" />
           <folding>
             <element signature="e#0#16#0" expanded="true" />
+            <marker date="1544280114792" expanded="true" signature="77:3975" ph="..." />
           </folding>
         </state>
       </provider>
@@ -329,7 +344,7 @@
           <caret line="35" column="38" lean-forward="false" selection-start-line="35" selection-start-column="38" selection-end-line="35" selection-end-column="38" />
           <folding>
             <element signature="e#0#16#0" expanded="true" />
-            <marker date="1544204126220" expanded="true" signature="449:479" ph="..." />
+            <marker date="1544280433755" expanded="true" signature="449:479" ph="..." />
           </folding>
         </state>
       </provider>
@@ -382,6 +397,7 @@
           <caret line="63" column="0" lean-forward="true" selection-start-line="63" selection-start-column="0" selection-end-line="63" selection-end-column="0" />
           <folding>
             <element signature="e#0#16#0" expanded="true" />
+            <marker date="1544280114792" expanded="true" signature="77:3975" ph="..." />
           </folding>
         </state>
       </provider>
@@ -402,7 +418,7 @@
           <caret line="35" column="38" lean-forward="false" selection-start-line="35" selection-start-column="38" selection-end-line="35" selection-end-column="38" />
           <folding>
             <element signature="e#0#16#0" expanded="true" />
-            <marker date="1544204126220" expanded="true" signature="449:479" ph="..." />
+            <marker date="1544280433755" expanded="true" signature="449:479" ph="..." />
           </folding>
         </state>
       </provider>
@@ -455,6 +471,7 @@
           <caret line="43" column="19" lean-forward="false" selection-start-line="43" selection-start-column="19" selection-end-line="43" selection-end-column="19" />
           <folding>
             <element signature="e#0#16#0" expanded="true" />
+            <marker date="1544280114792" expanded="true" signature="77:3975" ph="..." />
           </folding>
         </state>
       </provider>
@@ -475,7 +492,7 @@
           <caret line="42" column="20" lean-forward="false" selection-start-line="42" selection-start-column="20" selection-end-line="42" selection-end-column="20" />
           <folding>
             <element signature="e#0#16#0" expanded="true" />
-            <marker date="1544204126220" expanded="true" signature="449:479" ph="..." />
+            <marker date="1544280433755" expanded="true" signature="449:479" ph="..." />
           </folding>
         </state>
       </provider>
@@ -528,6 +545,7 @@
           <caret line="43" column="19" lean-forward="false" selection-start-line="43" selection-start-column="19" selection-end-line="43" selection-end-column="19" />
           <folding>
             <element signature="e#0#16#0" expanded="true" />
+            <marker date="1544280114792" expanded="true" signature="77:3975" ph="..." />
           </folding>
         </state>
       </provider>
@@ -548,7 +566,7 @@
           <caret line="42" column="20" lean-forward="false" selection-start-line="42" selection-start-column="20" selection-end-line="42" selection-end-column="20" />
           <folding>
             <element signature="e#0#16#0" expanded="true" />
-            <marker date="1544204126220" expanded="true" signature="449:479" ph="..." />
+            <marker date="1544280433755" expanded="true" signature="449:479" ph="..." />
           </folding>
         </state>
       </provider>
@@ -629,31 +647,11 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/client.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="343">
-          <caret line="80" column="29" lean-forward="false" selection-start-line="80" selection-start-column="29" selection-end-line="80" selection-end-column="29" />
+        <state relative-caret-position="358">
+          <caret line="81" column="29" lean-forward="false" selection-start-line="81" selection-start-column="29" selection-end-line="81" selection-end-column="29" />
           <folding>
             <element signature="e#0#16#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/TLDS1.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="315">
-          <caret line="64" column="23" lean-forward="false" selection-start-line="64" selection-start-column="23" selection-end-line="64" selection-end-column="23" />
-          <folding>
-            <element signature="e#0#16#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/TLDS2.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="315">
-          <caret line="64" column="23" lean-forward="false" selection-start-line="64" selection-start-column="23" selection-end-line="64" selection-end-column="23" />
-          <folding>
-            <element signature="e#0#16#0" expanded="true" />
-            <marker date="1544204126220" expanded="true" signature="449:479" ph="..." />
+            <marker date="1544280114792" expanded="true" signature="77:3975" ph="..." />
           </folding>
         </state>
       </provider>
@@ -662,6 +660,35 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="533">
           <caret line="87" column="33" lean-forward="false" selection-start-line="87" selection-start-column="33" selection-end-line="87" selection-end-column="33" />
+          <folding>
+            <element signature="e#0#16#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/PROJ3-TLDS2.txt">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/TLDS2.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="285">
+          <caret line="65" column="12" lean-forward="false" selection-start-line="65" selection-start-column="12" selection-end-line="65" selection-end-column="46" />
+          <folding>
+            <element signature="e#0#16#0" expanded="true" />
+            <marker date="1544280433755" expanded="true" signature="449:479" ph="..." />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/TLDS1.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="330">
+          <caret line="65" column="46" lean-forward="false" selection-start-line="65" selection-start-column="46" selection-end-line="65" selection-end-column="46" />
           <folding>
             <element signature="e#0#16#0" expanded="true" />
           </folding>

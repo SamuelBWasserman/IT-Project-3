@@ -31,10 +31,12 @@ def ts_server():
     except mysoc.error as err:
         print('{} \n'.format("socket open error ", err))
 
-    client_sock.bind(('', 5011))
     ts_soc.bind(('', 5007))
     ts_soc.listen(1)
+
+    client_sock.bind(('', 5011))
     client_sock.listen(1)
+
 
     host = mysoc.gethostname()
     print("[S]: Server host name is: ", host)
@@ -42,7 +44,8 @@ def ts_server():
     print("[S]: Server IP address is  ", localhost_ip)
     ts_sockid, addr = ts_soc.accept()
     print ("[S]: Got a connection request from a auth server at", addr)
-
+    client_sock_id, client_addr = client_sock.accept()
+    print ("[S]: Got a connection request from a client at", client_addr)
 
     #load data to dictionary
     dns_table = make_dic()
@@ -61,13 +64,8 @@ def ts_server():
         ts_sockid.send(str(digest.hexdigest()))
 
         flag = ts_sockid.recv(100).decode('utf-8')
-        is_client_connected = False
         if flag == "ts1":
             print "This server will be called"
-            if is_client_connected == False:
-                client_sock_id, client_addr = client_sock.accept()
-                is_client_connected = True
-                print ("[S]: Got a connection request from a client at", client_addr)
             hostname = client_sock_id.recv(100).decode('utf-8')
             print hostname
 
